@@ -1,5 +1,6 @@
 import pygame
 
+from .themes import day_theme
 from .functions import load_image
 from .intention import Intent
 
@@ -8,10 +9,9 @@ def init():
     pygame.init()
 
 
-def run(start_screen):
+def run(start_screen, theme=day_theme):
     intent = Intent()
-    from .themes import day_theme
-    cur_screen = start_screen(display, intent, Theme(day_theme.data))
+    cur_screen = start_screen(display, intent, Theme(theme.data))
 
     running = True
     while running:
