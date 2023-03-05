@@ -5,8 +5,22 @@ from .functions import load_image
 from .intention import Intent
 
 
-def init():
+
+
+SIZE = WIDTH, HEIGHT = 300, 300
+FPS = 60
+clock = pygame.time.Clock()
+
+display = None
+from .themes import *
+
+
+def init(screen_size=SIZE, fps=60):
+    global SIZE, FPS, display
+    SIZE = screen_size
+    FPS = fps
     pygame.init()
+    display = pygame.display.set_mode(SIZE)
 
 
 def run(start_screen, theme=day_theme):
@@ -25,13 +39,6 @@ def run(start_screen, theme=day_theme):
         display.fill((0, 0, 0))
         cur_screen.draw(clock.tick(FPS))
         pygame.display.flip()
-
-
-FPS = 60
-clock = pygame.time.Clock()
-SIZE = WIDTH, HEIGHT = 1200, 700
-display = pygame.display.set_mode(SIZE)
-from .themes import *
 
 SCROLL_SHIFT = 25
 

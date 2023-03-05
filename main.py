@@ -15,6 +15,6 @@ class HelloWorldScreen(Screen):
 
 
 if __name__ == "__main__":
-    init()
+    init((600, 450))
     functions.set_caption("UIPL program")
     run(HelloWorldScreen, night_theme)
